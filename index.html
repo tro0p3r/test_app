@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Font Awesome -->
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          rel="stylesheet"
+  />
+  <!-- Google Fonts -->
+  <link
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          rel="stylesheet"
+  />
+  <!-- MDB -->
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css"
+          rel="stylesheet"
+  />
+  <!-- MDB -->
+  <script
+          type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
+  ></script>
+  <style>
+    .navbar-brand{
+        color: #2ebaff !important;
+    }
+    body{
+        font-family:"ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO",sans-serif;
+        background-color: #fbf7f5
+    }
+    .border_link {
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+    }
+    .border_link::after {
+        position: absolute;
+        bottom: 1px;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: #2ebaff;
+        transform: scale(0, 1);
+        transform-origin: right top;
+        transition: transform .3s;
+    }
+    .border_link:hover::after {
+        transform-origin: left top;
+        transform: scale(1, 1);
+    }
+    .fade-in {
+        -webkit-transform: translateY(50px) rotate(-5deg) translateZ(0);
+        transform: translateY(50px) rotate(-5deg) translateZ(0);
+        -webkit-transition-delay: .3s;
+        -o-transition-delay: .3s;
+        transition-delay: .3s;
+        -webkit-transition: .4s;
+        -o-transition: .4s;
+        transition: .4s;
+        opacity: 0;
+    }
+    .inView {
+        opacity: 1;
+        -webkit-transform: translateY(0px) rotate(0deg) translateZ(0);
+        transform: translateY(0px) rotate(0deg) translateZ(0);
+    }
+    section {
+        padding:20px;
+    }
+    .btn-outline-info:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+        color: #fff;
+        background-color: #55b5d3;
+        border-color: #285e8e; /*set the color you want here*/
+    }
+  </style>
+  <meta charset="UTF-8">
+  <title>BookShare</title>
+</head>
+<body>
+<script>
+    let elementsArray = document.getElementsByClassName("col-4 fade-in");
+    console.log(elementsArray);
+    window.addEventListener('scroll', fadeIn );
+    function fadeIn() {
+        for (var i = 0; i < elementsArray.length; i++) {
+            var elem = elementsArray[i]
+            var distInView = elem.getBoundingClientRect().top - window.innerHeight + 250;
+            if (distInView < 0) {
+                elem.classList.add("inView");
+            } else {
+                elem.classList.remove("inView");
+            }
+        }
+    }
+    fadeIn();
+</script>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    <a class="navbar-brand" href="#">BooksShare</a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link border_link" href="#">書籍を登録</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link border_link" href="#">書籍を検索</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav me-5 mb-2 mb-lg-0">
+        <li class="nav-item mx-1">
+          <button type="button" class="btn btn-success btn-rounded">新規登録</button>
+        </li>
+        <li class="nav-item mx-1">
+          <button type="button" class="btn btn-info btn-rounded">ログイン</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <!-- Carousel wrapper -->
+  <div id="carouselMaterialStyle" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide-to="0" class="active" aria-current="true"
+              aria-label="Slide 1"></button>
+      <button type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <!-- Inner -->
+    <div class="carousel-inner rounded-5 shadow-4-strong">
+      <!-- Single item -->
+      <div class="carousel-item active" data-mdb-interval="5000">
+        <img src="https://yomeruba.com/archives/001/202003/cc1f81ebb2048204703c95bd0ca7dbae.png" class="d-block w-100"
+             alt="Sunset Over the City" />
+      </div>
+
+      <!-- Single item -->
+      <div class="carousel-item" data-mdb-interval="5000">
+        <img src="https://yomeruba.com/archives/001/202011/d5d848a39cee3724320b498fdd7b8793.png" class="d-block w-100"
+             alt="Canyon at Nigh" />
+      </div>
+
+      <!-- Single item -->
+      <div class="carousel-item" data-mdb-interval="5000">
+        <img src="https://yomeruba.com/archives/001/202009/a4af7d12095eedb58a11627599a76fb9.png" class="d-block w-100"
+             alt="Cliff Above a Stormy Sea" />
+      </div>
+    </div>
+    <!-- Inner -->
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- Carousel wrapper -->
+  <div class="row">
+    <div class="col mt-5">
+      <h3 style="text-align: center">今週のランキング</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4 fade-in">
+      <p style="text-align: center; font-size: 30px"><i class="fas fa-crown" style="font-size: 30px; color: #aca90d"></i>1位</p>
+      <div class="card mx-auto mt-5" style="width: 300px">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid"/>
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">面白い本</h5>
+          <p class="card-text">面白い面白い面白い面白い面白い面白い面白い面白い面白い</p>
+          <a href="#!" class="btn btn-outline-info btn-rounded">もっと読む</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 fade-in">
+      <p style="text-align: center; font-size: 30px"><i class="fas fa-crown mx-auto" style="font-size: 30px; color: #abaca7"></i>２位</p>
+      <div class="card mx-auto mt-5" style="width: 300px">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid"/>
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">面白い本</h5>
+          <p class="card-text">面白い面白い面白い面白い面白い面白い面白い面白い面白い</p>
+          <a href="#!" class="btn btn-outline-info btn-rounded">もっと読む</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 fade-in">
+      <p style="text-align: center; font-size: 30px"><i class="fas fa-crown" style="font-size: 30px; color: #ac6b20"></i>３位</p>
+      <div class="card mx-auto mt-5" style="width: 300px">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid"/>
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">面白い本</h5>
+          <p class="card-text">面白い面白い面白い面白い面白い面白い面白い面白い面白い</p>
+          <a href="#!" class="btn btn-outline-info btn-rounded">もっと読む</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 fade-in">
+      <div class="card mx-auto mt-5" style="width: 300px">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid"/>
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">面白い本</h5>
+          <p class="card-text">面白い面白い面白い面白い面白い面白い面白い面白い面白い</p>
+          <a href="#!" class="btn btn-outline-info btn-rounded">もっと読む</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 fade-in">
+      <div class="card mx-auto mt-5" style="width: 300px">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid"/>
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">面白い本</h5>
+          <p class="card-text">面白い面白い面白い面白い面白い面白い面白い面白い面白い</p>
+          <a href="#!" class="btn btn-outline-info btn-rounded">もっと読む</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 fade-in">
+      <div class="card mx-auto mt-5" style="width: 300px">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid"/>
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">面白い本</h5>
+          <p class="card-text">面白い面白い面白い面白い面白い面白い面白い面白い面白い</p>
+          <a href="#!" class="btn btn-outline-info btn-rounded">もっと読む</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="bg-light text-center text-lg-start">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-4 mx-auto" style="text-align: center">
+        <a href="#">リンク</a>
+        <a href="#">リンク</a>
+        <a href="#">リンク</a>
+        <a href="#">リンク</a>
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022 Copyright:test_rt
+  </div>
+  <!-- Copyright -->
+</footer>
+</body>
+</html>
